@@ -1,0 +1,226 @@
+{{/* version 22 November */}}
+{{- $collectionPages := slice -}}
+{{- $singlePages := slice -}}
+{{- $singles := slice -}}
+{{- $singlesMenu := slice -}}
+{{- $collections := slice -}}
+{{- $collectionMenu := slice -}}
+{{- $homeMenu := slice -}}
+{{- $dataMenu := slice -}}
+{{- $generalMenu := slice -}}
+{{- $configItems := dict "title" "string" "description" "string" -}}
+{{- $translations := slice -}}
+{{- range .Site.AllPages -}}
+    {{- range .AllTranslations -}}
+          {{- if not ( in $translations .Language.Lang ) -}}
+            {{- $translations = $translations | append .Language.Lang -}}
+          {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{/*------------------------------ Data -----------------------------*/}}
+
+{{- range $index, $file := readDir "/" -}}
+  {{- if eq $file.Name "data" -}}
+      {{- $data := (partial "createDataSingles" (dict "dir" "/data/" "data" $.Site.Data "translations" $translations )) }}
+      {{- $singles = $singles | append (index $data "singles") }}
+      {{- $dataMenu = $dataMenu | append (index $data "menu") }}
+  {{- end -}}
+{{- end -}}
+
+{{/*------------------------------ Menus and Params  -----------------------------*/}}
+
+{{- $configFilePath := partial "configFile" . -}}
+
+{{- if in $configFilePath "config/_default/" }}
+      {{- range $index, $file := partial "rangeFiles"  (dict "dir" "config/_default/" ) -}}
+            {{- if or (in .file "params") (in .file "Params") -}}
+                {{- $single := partial "createParams" (dict "file" .file  "dir" "config/_default/" "params" $.Site.Params) -}}
+                {{- $singles = $singles | append $single -}}
+                {{- $generalMenu = $generalMenu | append (dict "key" ( index $single "key" ) ) -}}
+            {{- else if or (in .file "menu") (in .file "Menu") -}}
+                {{- $single := partial "createMenus" (dict "file" .file  "dir" "config/_default/" "menus" $.Site.Menus "key" "menus") -}}
+                {{- $singles = $singles | append $single -}}
+                {{- $generalMenu = $generalMenu | append (dict "key" ( index $single "key" ) ) -}}
+            {{- end -}}
+      {{- end -}}
+{{- else -}}
+      {{ $config := readFile $configFilePath  }}
+      {{- if in $config "params" -}}
+          {{- $single := partial "createParams" (dict "file" $configFilePath  "dir" "/" "params" $.Site.Params "configItems" $configItems "paramsKey" "params") -}}
+          {{- $singles = $singles | append $single -}}
+          {{- $generalMenu = $generalMenu | append (dict "key" ( index $single "key" ) ) -}}
+      {{- else if in $config "Params" -}}
+          {{- $single := partial "createParams" (dict "file" $configFilePath  "dir" "/" "params" $.Site.Params "configItems" $configItems "paramsKey" "Params") -}}
+          {{- $singles = $singles | append $single -}}
+          {{- $generalMenu = $generalMenu | append (dict "key" ( index $single "key" ) ) -}}
+      {{- end -}}
+
+      {{- if in $config "menu" -}}
+          {{- $single := partial "createMenus" (dict "file" $configFilePath  "dir" "/" "menus" $.Site.Menus "key" "menus" ) -}}
+          {{- $singles = $singles | append $single -}}
+          {{- $generalMenu = $generalMenu | append (dict "key" ( index $single "key" ) ) -}}
+      {{- end -}}
+{{- end -}}
+
+
+{{/*
+{{- $singles = $singles | append (partial "staticBundleManager" ( dict "dir" "static")) -}}
+{{- $generalMenu = $generalMenu | append (dict "key" "staticimages" ) -}}
+*/}}
+
+
+{{/*------------------------ Home widgetpage ------------------------ */}}
+
+{{- $homeSinglePages := slice -}}
+{{- $homeCollections := slice -}}
+{{- $page := "/home/index.md" -}}
+
+{{- $homepage := site.GetPage $page -}}
+
+{{- $homepages := slice $homepage -}}
+{{- if $homepage.IsTranslated -}}
+    {{- $homepages = $homepage.AllTranslations }}
+{{- end -}}
+{{- range $homepages -}}
+    {{- range $index, $st :=  (.Resources.ByType "page") -}}
+      {{- $contentDir := (partial "getContentDir" . ) -}}
+      {{- $parentDir := (path.Dir (path.Dir $st.File.Dir)) -}}
+      {{- $language := "" -}}
+      {{- if $homepage.IsTranslated -}}
+          {{- $language := .Language.Lang -}}
+      {{- end -}}
+      {{- if or (eq $st.File.Dir "home/") (eq $parentDir "home") -}}
+          {{- $homeSinglePages = $homeSinglePages | append . -}}
+      {{ else }}
+        {{- $path :=  path.Dir (path.Dir $st.File.Dir) -}}
+        {{- if not (in $homeCollections (printf "%s%s" $language $path)) -}}
+            {{- $homeCollections = $homeCollections | append (printf "%s%s" $language $path) -}}
+            {{- $sectionKey := printf "%s_%s" (path.Base $path) $language -}}
+            {{- if $language -}} {{ $language = (printf "%s | " $language) }} {{- end -}}
+            {{- $sectionTitle :=  printf "%s%s" $language ((path.Base $path)| humanize) -}}
+            {{- $itemTitle :=   $sectionTitle  | singularize -}}
+            {{- $dir := printf "%s%s/" $contentDir $path -}}
+            {{- $extension := .File.Ext -}}
+            {{- $fields := slice -}}
+            {{- $resourceDir := "" -}}
+            {{- if (index (readDir $dir) 0).IsDir -}}
+                {{- $resourceDir = printf "%s%s" $dir (index (readDir $dir) 0).Name -}}
+            {{- else -}}
+                {{- $resourceDir = printf "%s%s" $dir (index (readDir $dir) 1).Name -}}
+            {{- end -}}
+            {{- $fields = $fields | append (partial "createResourceBundleManagers" (dict "page" $st.Parent "dir" $resourceDir)) -}}
+            {{- if not (in .Params "mainContent") -}}
+                {{- $fields := $fields | append (partial "createField" (dict "value" .Content "key" "mainContent")) -}}
+            {{- end -}}
+            {{- range $key, $value := .Params -}}
+                {{- $field := partial "createField" (dict "value" $value "key" $key "file" $st.File.Path ) -}}
+                {{- $fields = $fields | append $field -}}
+            {{- end -}}
+            {{- $collection := dict "key" $sectionKey "title" $sectionTitle "folder" $dir "extension" $extension "dataformat" "yaml" "fields" $fields "itemtitle" $itemTitle "previewUrl" "/" -}}
+            {{- $collections = $collections | append $collection -}}
+            {{- $homeMenu = $homeMenu | append (dict "key" (index $collection "key")) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+
+{{- range $homeSinglePages -}}
+      {{- $language := "" -}}
+      {{- if and .Language.Lang  $homepage.IsTranslated -}}
+          {{- $language = .Language.Lang -}}
+      {{- end -}}
+      {{- $single := (partial "createSingle" (dict "page" . "prefix" "h_" "language" $language )) -}}
+      {{- $singles = $singles | append $single -}}
+      {{- $homeMenu = $homeMenu | append (dict "key" $single.key ) -}}
+{{- end -}}
+
+{{/*------------------------Collections------------------------ */}}
+
+
+{{- range where .Site.AllPages "Kind" "in" (slice "section" "taxonomy" ) -}}
+    {{- $collectionPages = $collectionPages | append . -}}
+{{- end -}}
+
+{{- $additionalCollections := slice -}}
+{{- range .Site.AllPages -}}
+    {{ with .Parent }}
+        {{- if and (eq .Kind "section") (not (in $collectionPages . )) (not (in $additionalCollections .Path )) -}}
+            {{- $additionalCollections = $additionalCollections | append .Path -}}
+            {{- $collectionPages = $collectionPages | append . -}}
+        {{- end -}}
+    {{ end }}
+{{- end -}}
+
+{{- range $collectionPages -}}
+      {{- $collection := (partial "createCollection" . ) -}}
+      {{- if gt (len $collection) 0 }}
+          {{- $collectionMenu = $collectionMenu | append (dict "key" (index $collection "key")) -}}
+          {{- $collections = $collections | append $collection -}}
+      {{- end -}}
+{{- end -}}
+
+
+{{/*---------------------------Singles----------------------------- */}}
+
+
+{{- range .Site.Pages -}}
+    {{- if and .IsHome .Path -}}
+      {{- $singlePages = $singlePages | append . -}}
+    {{- end -}}
+{{- end -}}
+
+
+{{- range .Pages -}}
+  {{- if .File -}}
+    {{- if .IsTranslated -}}
+        {{- range .AllTranslations -}}
+            {{- if not (eq .Language.Lang "" ) -}}
+                  {{- $singlePages = $singlePages | append . -}}
+            {{- end -}}
+        {{- end -}}
+    {{- else -}}
+          {{- $singlePages = $singlePages | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- range $singlePages -}}
+    {{- $single := (partial "createSingle" (dict "page" . "prefix" "s_") ) -}}
+    {{ if gt (len $single) 0 }}
+        {{- $singles = $singles | append $single -}}
+        {{- $singlesMenu = $singlesMenu | append (dict "key" $single.key ) -}}
+    {{- end -}}
+{{- end -}}
+
+{{/*---------------------------Menu----------------------------- */}}
+{{- $menu := slice -}}
+
+{{- if gt (len $homeMenu) 0 }}
+    {{- $menu = $menu | append (dict "key" "home" "title" "Home" "menuItems" $homeMenu) -}}
+{{- end -}}
+
+{{- if gt (len $singlesMenu) 0 }}
+    {{- $menu = $menu | append (dict "key" "pages" "title" "Pages" "menuItems" $singlesMenu) -}}
+{{- end -}}
+
+{{- if gt (len $collectionMenu) 0 }}
+    {{- $menu = $menu | append (dict "key" "groups" "title" "Groups" "menuItems" $collectionMenu) -}}
+{{- end -}}
+
+{{- if gt (len $dataMenu) 0 }}
+    {{- $menu = $menu | append (dict "key" "Other content" "title" "Other content" "menuItems" $dataMenu) -}}
+{{- end -}}
+
+{{- if gt (len $generalMenu) 0 }}
+    {{- $menu = $menu | append (dict "key" "general" "title" "General" "menuItems" $generalMenu) -}}
+{{- end -}}
+
+{{/*-----------------The core getting it all together------------- */}}
+
+
+{{- $hugover := printf "extended_%s" .Hugo.Version -}}
+{{- $serve := slice (dict "key" "default" "config" (partial "configFile" .)) -}}
+{{- $build := slice (dict "key" "default" "config" (partial "configFile" .)) -}}
+{{- dict "hugover" $hugover "serve" $serve "build" $build "menu" $menu "singles" $singles "collections" $collections  | jsonify (dict "prefix" " " "indent" "  ") -}}

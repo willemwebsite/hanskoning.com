@@ -1,0 +1,51 @@
+{{ $page := .Page }}
+{{ $images := slice }}
+
+{{ if (.Get 0) }} {{$images = $images | append (.Get 0) }} {{ end }}
+{{ if (.Get 1) }} {{$images = $images | append (.Get 1) }} {{ end }}
+{{ if (.Get 2) }} {{$images = $images | append (.Get 2) }} {{ end }}
+{{ if (.Get 3) }} {{$images = $images | append (.Get 3) }} {{ end }}
+
+
+<div class="row">
+
+{{ range $images}}
+    {{ $image_name := .}}
+    {{ $image_path := "" }}
+    {{ $resource_page := "" }}
+
+      {{ if or (eq $page.Kind "taxonomy") (eq $page.Kind "term")}}
+        {{ $image_path = printf "*%s*" $image_name}}
+        {{ $resource_page = $page.Page }}
+      {{  else if or (eq $page.Parent.Type "widget_page")}}
+        {{ $image_path = printf "%s/%s/*%s*" (path.Base (path.Split $page.Path).Dir) "/images" $image_name}}
+        {{ $resource_page = $page.Parent }}
+      {{ else }}
+        {{ $image_path = printf "%s/*%s*" "images" $image_name }}
+        {{ $resource_page = $page.Page }}
+      {{ end }}
+
+    {{ $sizes := (slice "200" "360" "480" "800" "1200" "1500") }}
+    {{ $image := ($resource_page.Resources.ByType "image").GetMatch $image_path}}
+
+
+    <div class= "col-12 {{if eq (len $images) 2}} col-sm-6 {{end}} {{if eq (len $images) 3}} col-sm-4 {{end}} {{if eq (len $images) 4}} col-sm-3 {{end}}">
+
+        {{ with $image }}
+            <img sizes="45vw "
+              {{/* only srcset images smaller than or equal to the image size, as Hugo will upscale small images */}}
+              srcset='
+              {{ range $sizes }}
+                {{ ($image.Resize (printf "%sx" .)).RelPermalink }} {{ (printf "%sw" .) }},
+              {{ end }}'
+
+              src="{{ ($image.Resize "640x").Permalink }}"
+
+              class="lazyload image"
+              alt=""
+            >
+        {{end}}
+
+    </div>
+{{ end }}
+</div>

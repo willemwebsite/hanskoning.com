@@ -1,0 +1,69 @@
+{{ $page := .page }}
+{{ $class := .class}}
+{{ $bg := $page.Params.design.background }}
+{{ $path := .path }}
+{{ $css_class := $class }}
+
+{{ if or (eq $page.Kind "taxonomy") (eq $page.Kind "term")}}
+  {{ $path = "" }}
+{{ else }}
+  {{ $path = "images/" }}
+{{ end}}
+
+{{ partial "functions/get_background_style" (dict "page" $page "css_class" $css_class "bg_image" $page.Params.hero_image "path" $path )}}
+
+  <div  class="{{$css_class}} {{if $bg.image}} bg-image{{if ($bg.image_parallax | default true) }} parallax{{end}}{{end}} ">
+    <div class="container">
+      <h1 class="hero-title">
+
+        {{ with $page.Title }}{{ . | markdownify }}{{ end }}
+      </h1>
+
+      <h2 class="hero-subtitle">
+        {{ $taxonomy := "technieken" }}
+        {{ with $page.Param $taxonomy }}
+          {{ range $index, $value := . }} {{ . }} {{ end }}
+        {{ end }}
+      </h2>
+
+      {{/* Call-to-action link */}}
+      {{ if $page.Params.cta.url }}
+        {{ $pack := or $page.Params.cta.icon_pack "fas" }}
+        {{ $pack_prefix := $pack }}
+        {{ if in (slice "fab" "fas" "far" "fal") $pack }}
+          {{ $pack_prefix = "fa" }}
+        {{ end }}
+        {{ $link := $page.Params.cta.url }}
+        {{ $scheme := (urls.Parse $link).Scheme }}
+        {{ $target := "" }}
+        {{ if not $scheme }}
+          {{ $link = $link | relLangURL }}
+        {{ else if in (slice "http" "https") $scheme }}
+          {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+        {{ end }}
+      <p class="cta-btns">
+        <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} class="btn {{if $bg.text_color_light}}btn-outline-light{{else}}btn-outline-primary{{end}} btn-lg">{{ if $page.Params.cta.icon }}<i class="{{ $pack }} {{ $pack_prefix }}-{{ $page.Params.cta.icon }} pr-1" aria-hidden="true"></i>{{end}}{{ $page.Params.cta.label | markdownify | emojify | safeHTML }}</a>
+
+        {{/* Alternative Call-to-action link */}}
+        {{ if $page.Params.cta_alt.url }}
+          {{ $link := $page.Params.cta_alt.url }}
+          {{ $scheme := (urls.Parse $link).Scheme }}
+          {{ $target := "" }}
+          {{ if not $scheme }}
+            {{ $link = $link | relLangURL }}
+          {{ else if in (slice "http" "https") $scheme }}
+            {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+          {{ end }}
+        <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} class="hero-cta-alt pl-4">{{ $page.Params.cta_alt.label | markdownify | emojify | safeHTML }} <i class="fas fa-angle-right"></i></a>
+        {{ end }}
+      </p>
+      {{ end }}
+
+      {{/* Call-to-action note */}}
+      {{ with $page.Params.cta_note }}
+      <p class="hero-note text-muted mb-0">
+        {{ .label | markdownify | emojify | safeHTML }}
+      </p>
+      {{ end }}
+      </div>
+  </div>

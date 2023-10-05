@@ -1,0 +1,37 @@
+{{- define "main" -}}
+
+{{ $class := "hero_image"}}
+
+<article class="article">
+  {{ partial "hero_partial" (dict "page" . "class" $class) }}
+
+      <div class="">
+      <style><!-- layout is default-list --></style>
+
+      {{ with .Content }}
+        <div class="article-style">{{ . }}</div>
+      {{ end }}
+
+      {{partial "tags" . }}
+
+      <div class="grid">
+        {{ $paginator := .Paginate .Data.Pages }}
+        {{ range $paginator.Pages }}
+          {{ $link := .Permalink }}
+          {{ $target := "" }}
+          {{ with .Params.external_link }}
+            {{ $link = . }}
+            {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+          {{ end }}
+          {{ partial "li_grid" . }}
+        {{ end }}
+      </div>
+
+      {{ partial "contact_form" . }}
+      {{ partial "pagination" . }}
+      {{ partial "page_footer" . }}
+
+  </div>
+</article>
+
+{{- end -}}

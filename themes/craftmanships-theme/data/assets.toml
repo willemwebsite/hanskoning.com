@@ -1,0 +1,18 @@
+
+# How to update the SRI for an entry:
+#   echo -n "sha512-" && curl --silent "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML" | openssl dgst -sha512 -binary | openssl enc -base64 -A
+# Or, the SRI for the appropriate asset can be copied from https://cdnjs.com/ .
+
+# JavaScript
+
+
+# CSS
+
+[css.instantsearch]
+  version = "2.9.0"
+  sri = "sha256-ZtmLe16p4jS4/2wPwwH6NzJt460SJzgLmhKrYo5yn7g="
+  url = "https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/%s/instantsearch.min.css"
+[css.instantsearchTheme]
+  version = "2.10.2"
+  sri = "sha256-uL8LUd3zkI/lXvc/Hv/oOu8ld6RJcOZiUY/8c+I+3/o="
+  url = "https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/%s/instantsearch-theme-algolia.min.css"

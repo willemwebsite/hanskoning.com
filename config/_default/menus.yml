@@ -1,0 +1,21 @@
+main:
+  - identifier: ''
+    name: Home
+    parent: ''
+    url: '#hero'
+    weight: 10
+  - identifier: ''
+    name: Mijn werk
+    parent: ''
+    url: '#portfolio'
+    weight: 40
+  - identifier: ''
+    name: Contact
+    parent: ''
+    url: '#contact'
+    weight: 50
+  - identifier: ''
+    name: Over mij
+    parent: ''
+    url: '#about'
+    weight: 60

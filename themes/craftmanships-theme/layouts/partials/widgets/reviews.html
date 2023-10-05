@@ -1,0 +1,52 @@
+{{ $ := .root }}
+{{ $page := .page }}
+
+<div class="section-heading">
+  <h1>{{ with $page.Title }}{{ . | markdownify | emojify }}{{ end }}</h1>
+</div>
+{{ with $page.Content }}{{ . }}{{ end }}
+
+<div class="container-xl">
+	<div class="row">
+		<div class="col-lg-10 mx-auto">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!-- Carousel indicators -->
+				<ol class="carousel-indicators">
+          {{ range $idx, $key := sort $page.Params.review ".date" "desc" }}
+					     <li data-target="#myCarousel" data-slide-to="{{ $idx }}" class="{{ if (eq $idx 0) }}active{{ end }}"></li>
+          {{end}}
+				</ol>
+				<!-- Wrapper for carousel items -->
+        {{ if $page.Params.review }}
+
+          <div class="carousel-inner">
+            {{ range $idx, $key := sort $page.Params.review ".date" "desc" }}
+
+            {{ $image := .image }}
+            {{ $image_path := printf "%s/%s/*%s*" (path.Base (path.Split $page.Path).Dir) "images" $image}}
+            {{ $resource_page := $page.Parent }}
+            {{ $avatar := ($resource_page.Resources.ByType "image").GetMatch $image_path }}
+      					<div class="carousel-item {{ if (eq $idx 0) }}active{{ end }}">
+                  {{ if $avatar }}
+                  {{ $avatar_image := $avatar.Fill "190x190 Center" }}
+      						      <div class="img-box"><img src="{{ $avatar_image.RelPermalink }}" alt="{{.name}}"></div>
+                  {{end}}
+      						<p class="testimonial"><i><b>{{.quote| markdownify | emojify}}</b></i><br>{{.content | markdownify | emojify}}</p>
+      						<h4 class="">{{.name}}</h4>
+      					</div>
+            {{end}}
+          </div>
+
+        {{end}}
+
+				<!-- Carousel controls -->
+				<a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+					<i class="fa fa-angle-left"></i>
+				</a>
+				<a class="carousel-control-next" href="#myCarousel" data-slide="next">
+					<i class="fa fa-angle-right"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

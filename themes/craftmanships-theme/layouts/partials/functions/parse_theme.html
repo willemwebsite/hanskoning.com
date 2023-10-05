@@ -1,0 +1,49 @@
+{{- $scr := .Scratch -}}
+
+{{/* Get name of site's Theme. Precedence: Params.toml > Default (Minimal) */}}
+{{- $theme_index := (site.Params.theme | lower | replaceRE "\\s" "_") | default "minimal" -}}
+
+{{/* Get Font Size. */}}
+
+{{- $font_size := lower site.Params.font_size | default "l" -}}
+{{- $font_sizes := dict "xs" 14 "s" 16 "m" 18 "l" 21 "xl" 23 -}}
+{{- $font_size_numeric := (index $font_sizes $font_size) | default (index $font_sizes "l") -}}
+{{- $scr.Set "font_size" $font_size_numeric -}}
+{{- $scr.Set "font_size_small" (mul 0.9 $font_size_numeric) -}}
+
+{{/* Load Theme. */}}
+
+{{ $theme := index site.Data.themes $theme_index }}
+
+{{- $scr.Set "google_fonts" $theme.typography.google_fonts -}}
+
+{{- $scr.Set "link" ($theme.link | default $theme.typography.primary.color) -}}
+{{- $scr.Set "link_hover" ($theme.link_hover | default $theme.typography.primary.color) -}}
+
+{{- $scr.Set "primary" $theme.typography.primary.color -}}
+{{- $scr.Set "secondary" $theme.typography.secondary.color -}}
+{{- $scr.Set "heading1" $theme.typography.heading1.color -}}
+{{- $scr.Set "heading2" $theme.typography.heading2.color -}}
+{{- $scr.Set "heading3" $theme.typography.heading3.color -}}
+{{- $scr.Set "footer" $theme.typography.footer.color -}}
+{{- $scr.Set "button" $theme.typography.button.color -}}
+{{- $scr.Set "button_hover" $theme.typography.button.hover -}}
+
+{{- $scr.Set "nav_menu" $theme.typography.nav.color -}}
+{{- $scr.Set "nav_menu_active" $theme.typography.nav.active -}}
+{{- $scr.Set "nav_logo" $theme.typography.logo.color -}}
+
+{{- $scr.Set "background" ($theme.backgrounds.general | default "#fff") -}}
+{{- $scr.Set "background_odd" $theme.backgrounds.odd -}}
+{{- $scr.Set "background_even" $theme.backgrounds.even -}}
+{{- $scr.Set "nav_background" $theme.backgrounds.nav -}}
+{{- $scr.Set "background_footer" $theme.backgrounds.footer -}}
+
+{{- $scr.Set "font_body" $theme.typography.primary.font -}}
+{{- $scr.Set "font_logo" $theme.typography.logo.font -}}
+{{- $scr.Set "font_nav" $theme.typography.nav.font -}}
+{{- $scr.Set "font_button" $theme.typography.button.font -}}
+{{- $scr.Set "font_heading1" $theme.typography.heading1.font -}}
+{{- $scr.Set "font_heading2" ($theme.typography.heading2.font | safeCSS ) -}}
+{{- $scr.Set "font_heading4" $theme.typography.heading4.font -}}
+{{- $scr.Set "font_heading3" $theme.typography.heading3.font -}}

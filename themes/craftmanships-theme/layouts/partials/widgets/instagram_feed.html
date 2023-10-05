@@ -1,0 +1,21 @@
+{{/* Instagram Widget */}}
+
+{{/* Initialise */}}
+{{ $ := .root }}
+{{ $page := .page }}
+
+<div class="section-heading">
+  <h1>{{ with $page.Title }}{{ . | markdownify | emojify }}{{ end }}</h1>
+</div>
+
+<!-- Let javascript know if instagram = true -->
+<div class="d-none">
+  <input id="instagram" value="{{ site.Params.instagram_feed }}">
+
+</div>
+
+<div class="row">
+  <div id="instagram_feed">
+      <!-- Instagram feed will appear here -->
+  </div>
+<div>

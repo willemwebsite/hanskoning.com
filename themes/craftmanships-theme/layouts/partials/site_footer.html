@@ -1,0 +1,84 @@
+{{$pages := site.Pages }}
+
+<footer class="site-footer">
+
+<div class = "container">
+
+  {{ $current_page := . }}
+
+  {{/* Get site logo. */}}
+  {{ $show_logo := site.Params.main_menu.show_logo | default true }}
+  {{ $has_logo := fileExists "static/logo.png" | or (fileExists "static/logo.svg") }}
+  {{ $logo := "" }}
+  {{ if $has_logo }}
+    {{ $logo = (partial "functions/get_logo" (dict "constraint" "max_height" "size" 300)) }}
+  {{ end }}
+
+  {{$text_logo := .Site.Params.text_logo }}
+  {{ if $text_logo }}
+    {{ $logo = (partial "functions/get_logo" (dict "constraint" "max_height" "size" 300)) }}
+  {{ end }}
+
+
+  <div class="row">
+    <div class = "col-lg-2 footer-menu"></div>
+
+    <div class = "col-sm-6 col-lg-4">
+      {{if $show_logo}}
+          <a class="" href="{{ "/" | relLangURL }}">
+              <h4 class="footer-text">{{ site.Params.footer_logo}}</h4>
+          </a>
+      {{end}}
+      <ul class="footer-links">
+
+        {{ range site.Menus.main }}
+
+            {{/* Set target for link. */}}
+            {{ $.Scratch.Set "target" "" }}
+            {{ if gt (len .URL) 4 }}
+              {{ if eq "http" (slicestr .URL 0 4) }}
+                {{ $.Scratch.Set "target" " target=\"_blank\" rel=\"noopener\"" }}
+              {{ end }}
+            {{ end }}
+
+            {{/* Get active page. */}}
+            {{ $is_link_in_current_path := in $current_page.RelPermalink .URL }}
+            {{ $is_widget_page := or $current_page.IsHome (eq $current_page.Type "widget_page") }}
+            {{ $hash := findRE "#(.+)" .URL }}
+            {{ $is_same_page := $is_link_in_current_path }}
+            {{ if gt (len $hash) 0 }}
+              {{ $hash = index $hash 0 }}
+              {{ $hash_removed := replace .URL $hash "" }}
+              {{ if eq (len $hash_removed) 0 }}
+                {{ $hash_removed = "/" }}{{/* Add robustness for `/#SECTION` or `#SECTION` in `menus.toml`. */}}
+              {{ end }}
+              {{ $is_same_page = eq (path.Dir $current_page.RelPermalink) (path.Dir ($hash_removed|relLangURL)) }}
+            {{ end }}
+
+            <li class="">
+              <a class="" href="{{.URL | relLangURL}}"{{ if and $is_widget_page $is_same_page }} data-target="{{$hash}}"{{ end }}{{ ($.Scratch.Get "target") | safeHTMLAttr }}>
+                {{- .Pre -}}<h5>{{ .Name | safeHTML }}</h5>{{- .Post -}}
+              </a>
+            </li>
+        {{ end }}
+      </ul>
+    </div>
+
+    <div class = "col-sm-6 col-lg-4 follow">
+      <H5 class= "footer-text"> {{ site.Params.follow_me}} </h5>
+        <h5 class= "footer-text"> {{ site.Params.follow_me_account}}</h5>
+        {{ partial "share" . }}
+    </div>
+
+  </div>
+</div>
+
+{{ if site.Params.instagram_feed }}
+  {{ partial "instagram_feed" . }}
+{{ end }}
+  <p class="powered-by">
+    {{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}} &middot; {{ end }}
+
+    <a href="https:poppygo.io">Powered by PoppyGo</a>
+  </p>
+</footer>

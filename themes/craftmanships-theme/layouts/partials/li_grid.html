@@ -1,0 +1,48 @@
+{{ $item := . }}
+{{ $link := $item.Permalink }}
+
+{{/* Get summary. */}}
+{{ $summary := "" }}
+{{ if $item.Params.summary }}
+  {{ $summary = $item.Params.summary | markdownify | emojify }}
+{{ else if .Params.abstract }}
+  {{ $summary = .Params.abstract | markdownify | emojify }}
+{{ else if $item.Summary }}
+  {{ $summary = $item.Summary }}
+{{ end }}
+
+<div href="{{ $link}}" class = "item tint {{$item.Params.size}}">
+
+  <div class="overlay">
+
+    <h3 class="mb-1 mt-3">
+        <a href="{{ $link}}">{{ $item.Title}}</a>
+    </h3>
+<a href="{{ $link }}">
+  <div class="hover">
+    {{ with $summary }}
+    <div class="article-style">
+
+      <p>{{.}}</p>
+    </div>
+    {{ end }}
+
+    {{ $taxonomy := "technieken" }}
+    {{ with $item.Param $taxonomy }}
+    <span class=""><p> {{ i18n "technique" | default "Technieken" }}:
+      {{- range $index, $value := . -}}
+        {{- if gt $index 0 }}, {{ end -}}
+        <a href="{{ (site.GetPage (printf "/%s/%s" $taxonomy (. | urlize))).RelPermalink }}"> {{ . }}</a>
+      {{- end -}}
+      </p>
+    </span>
+    {{ end }}
+
+  </div>
+  </a>
+  </div>
+  {{ $link := $item.Permalink }}
+  {{ $image_role := $item.Params.featured_image }}
+  {{ $path := "images/"}}
+  {{partial "image" (dict "page" . "image_role" $image_role "link" $link "path" $path)}}
+</div>

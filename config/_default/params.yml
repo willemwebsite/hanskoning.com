@@ -1,0 +1,146 @@
+abstract_length: 135
+address:
+  city: Amstelveen
+  country: Netherlands
+  country_code: NL
+  postcode: 1187 AC
+  region: NH
+  street: Noorddammerlaan 105
+address_format: nl-nl
+address_formats:
+  de:
+    delimiters:
+      - <br>
+      - ' '
+      - ''
+    order:
+      - street
+      - postcode
+      - city
+  en-gb:
+    delimiters:
+      - ', '
+      - ', '
+      - ', '
+      - ''
+    order:
+      - street
+      - city
+      - region
+      - postcode
+  en-us:
+    delimiters:
+      - ', '
+      - ', '
+      - ' '
+      - ''
+    order:
+      - street
+      - city
+      - region
+      - postcode
+  nl-nl:
+    delimiters:
+      - <br>
+      - ' '
+      - ''
+    order:
+      - street
+      - postcode
+      - city
+  zh:
+    delimiters:
+      - ' '
+      - ' '
+      - ' '
+      - ''
+    order:
+      - postcode
+      - region
+      - city
+      - street
+appointment_url: null
+avatar:
+  gravatar: false
+  shape: circle
+comments:
+  commentable:
+    docs: true
+    page: true
+    post: true
+    project: true
+    publication: true
+    talk: true
+  commento:
+    url: ''
+  disqus:
+    shortname: ''
+    show_count: true
+  engine: 0
+contact_links:
+  - icon: instagram
+    icon_pack: fab
+    link: 'https://www.instagram.com/hanskoning_kunstig/'
+    name: Visit my instagram
+coordinates:
+  latitude: '52.390752'
+  longitude: '4.901849'
+date_format: 'Jan 2, 2006'
+day_night: true
+description: 'Vergulden, marmer- en hout imitatie, restauratie en decoratie'
+docs_section_pager: true
+edit_page:
+  content_dir: ''
+  editable:
+    docs: true
+    page: false
+    post: false
+  repo_branch: master
+  repo_url: 'https://gitlab.brepi.eu/platform/sukoh'
+email: info@hanskoning.com
+follow_me: Volg mij op instagram
+follow_me_account: '@hanskoning_kunstig'
+font: Hans
+font_size: XL
+footer_logo: Hans Koning
+instagram_account: hanskoning_kunstig
+instagram_feed: true
+languagecode: ''
+link_authors: true
+local_business_type: ProfessionalService
+mainSections: []
+main_menu:
+  align: r
+  show_logo: true
+mainsections: []
+map:
+  api_key: ''
+  engine: 2
+  zoom: 20
+marketing:
+  google_analytics: ''
+  google_tag_manager: ''
+org_name: Hanskoning.com
+phone: +31 6 51305883
+plugins_js: []
+pogoform: hanskoning
+privacy_pack: false
+projects:
+  post_view: card
+  publication_view: card
+  talk_view: card
+publications:
+  citation_style: apa
+  date_format: January 2006
+reading_time: true
+resources: []
+search:
+  engine: 1
+section_pager: true
+sharing: true
+sharing_image: ''
+site_type: LocalBusiness
+text_logo: ''
+theme: mytheme
+time_format: '3:04 PM'
+twitter: ''

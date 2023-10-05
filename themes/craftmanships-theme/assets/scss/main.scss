@@ -1,0 +1,44 @@
+{{- $scr := .Scratch -}}
+{{- $site := $scr.Get "site" -}}
+{{/* Don't use partialCached as can error when admin changes theme config whilst `hugo server` is running. */}}
+{{- partial "functions/parse_theme" . -}}
+
+$sta-font-size: {{ $scr.Get "font_size" }};
+$sta-font-size-small: {{ $scr.Get "font_size_small" }};
+
+$sta-font-body: "{{ $scr.Get "font_body" }}";
+$sta-font-nav: "{{ $scr.Get "font_nav" }}";
+$sta-font-logo: "{{ $scr.Get "font_logo" }}";
+$sta-font-button: "{{ $scr.Get "font_button" }}";
+$sta-font-heading1: "{{ $scr.Get "font_heading1" }}";
+$sta-font-heading2: "{{ $scr.Get "font_heading2" }}";
+$sta-font-heading3: "{{ $scr.Get "font_heading3" }}";
+$sta-font-heading4: "{{ $scr.Get "font_heading4" }}";
+
+$sta-primary: {{ $scr.Get "primary" }};
+$sta-secondary: {{ $scr.Get "secondary" }};
+$sta-heading1: {{ $scr.Get "heading1" }};
+$sta-heading2: {{ $scr.Get "heading2" }};
+$sta-heading3: {{ $scr.Get "heading3" }};
+$sta-footer: {{ $scr.Get "footer" }};
+$sta-button: {{ $scr.Get "button" }};
+$sta-button-hover: {{ $scr.Get "button_hover" }};
+
+$sta-link: {{ $scr.Get "link" }};
+$sta-link-hover: {{ $scr.Get "link_hover" }};
+
+$sta-nav-background: {{ $scr.Get "nav_background" }};
+$sta-nav-menu: {{ $scr.Get "nav_menu" }};
+$sta-nav-menu-active: {{ $scr.Get "nav_menu_active" }};
+$sta-nav-logo: {{ $scr.Get "nav_logo" }};
+
+$sta-background: {{ $scr.Get "background" }};
+$sta-background-odd: {{ $scr.Get "background_odd" }};
+$sta-background-even: {{ $scr.Get "background_even" }};
+$sta-background-footer: {{ $scr.Get "background_footer" }};
+
+
+@import "bootstrap_variables";
+@import "vendor/bootstrap/bootstrap";
+@import "craftman/craftman";
+@import "custom";

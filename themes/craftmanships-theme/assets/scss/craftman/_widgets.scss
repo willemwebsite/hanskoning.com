@@ -1,0 +1,546 @@
+/*************************************************
+ *  Page Builder: sections and widgets
+ **************************************************/
+
+@keyframes intro {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.home-section {
+  background-color: $sta-background-odd;
+  padding: 20px 0;
+}
+
+.parallax {
+  height: 100%;
+  background-attachment: fixed;
+}
+
+.home-section:first-of-type {
+  padding: 0px 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .home-section:first-of-type  {
+    padding: 0px 0px;
+  }
+}
+
+.home-section:nth-of-type(even) {
+  background-color: $sta-background-even;
+}
+
+
+
+.section-heading-block {
+  display:block;
+  width: 400px;
+  padding: 0px;
+  position: relative;
+  top: -40px;
+  left: -20px;
+  z-index:10;
+}
+
+@media  (min-width: 768px) {
+  .section-heading-block  {
+    width: 600px;
+    padding: 0px;
+    position: relative;
+    top: -40px;
+    left: -20px;
+  }
+}
+
+.section-heading-block h1{
+  font-size: 1.4rem;
+  color: #fff;
+  text-align: left;
+  padding: 10px 14px 9px;
+  letter-spacing: 0.4em;
+  margin: 0px;
+}
+
+
+/*************************************************
+ *  Widgets (common)
+ **************************************************/
+
+.see-all {
+  margin-top: 2rem;
+  text-transform: uppercase;
+}
+
+
+/*************************************************
+ *  Pages Widget
+ **************************************************/
+.wg-pages  {
+  max-width: 1900px;
+}
+
+.wg-pages .container {
+  max-width: 1900px;
+}
+
+.wg-pages .section-heading-block {
+  left: -10px;
+}
+
+/*************************************************
+ *  Higlight Widget
+ **************************************************/
+
+  #on-desktop {
+    display:none;
+  }
+
+  #on-mobile {
+    display:inline;
+  }
+
+  @media (min-width: 992px) {
+
+   #on-desktop {
+     display:inline;
+   }
+
+   #on-mobile {
+     display:none;
+   }
+ }
+
+  @media (max-width: 768px) {
+   .image-container {
+       top: 0px;
+   }
+
+   .highlight-body {
+     padding: 0px;
+   }
+ }
+
+.highlight-body {
+   padding: 30px;
+ }
+
+ /*************************************************
+  *  Review widget
+  **************************************************/
+
+ .wg-reviews {
+   padding:20px 0px 60px 0px;
+ }
+
+  .review_image {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+
+  .col-center {
+ 	margin: 0 auto;
+ 	float: none !important;
+ }
+ .carousel {
+ 	padding: 0 40px;
+ }
+
+ .carousel h4{
+  margin: 0px;
+ 	font-size: 1rem;
+ }
+ .carousel .carousel-item {
+ 	color: #999;
+ 	font-size: 14px;
+ 	text-align: center;
+ 	overflow: hidden;
+ 	min-height: 290px;
+ }
+ .carousel .carousel-item .img-box {
+ 	width: 135px;
+ 	height: 135px;
+ 	margin: 0 auto;
+ 	padding: 0 px;
+ 	border: 1px solid #ddd;
+ 	border-radius: 50%;
+ }
+ .carousel .img-box img {
+ 	width: 100%;
+ 	height: 100%;
+ 	display: block;
+ 	border-radius: 50%;
+ }
+ .carousel .testimonial {
+ 	padding: 0px 0 10px;
+ }
+ .carousel .overview {
+ 	font-style: italic;
+ }
+ .carousel .overview b {
+ 	text-transform: uppercase;
+ 	color: #7AA641;
+ }
+ .carousel-control-prev, .carousel-control-next {
+ 	width: 40px;
+ 	height: 40px;
+ 	margin-top: -10px;
+ 	top: 50%;
+ 	background: none;
+ }
+ .carousel-control-prev i, .carousel-control-next i {
+ 	font-size: 30px;
+ 	line-height: 42px;
+ 	position: absolute;
+ 	display: inline-block;
+ 	color: $sta-nav-menu-active;
+ 	text-shadow: 0 3px 3px $sta-nav-menu-active, 0 0 0 #000;
+ }
+ .carousel-indicators {
+ 	bottom: -40px;
+ }
+ .carousel-indicators li, .carousel-indicators li.active {
+ 	width: 12px;
+ 	height: 12px;
+ 	margin: 1px 3px;
+ 	border-radius: 50%;
+ 	border: none;
+ }
+ .carousel-indicators li {
+ 	background: #999;
+ 	border-color: transparent;
+ 	box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+ }
+ .carousel-indicators li.active {
+ 	background: #555;
+ 	box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+ }
+
+
+/*************************************************
+ *  Offer widget
+ **************************************************/
+
+.offer{
+  position: relative;
+  padding: 30px;
+  text-align: center;
+  //background-color: #9c8c8f;
+  background-color: $sta-background-odd;
+  border: 5px solid $sta-nav-menu-active;
+
+}
+
+.offer-border{
+  position: relative;
+  margin: 5% 10% 10% 10%;
+  padding: 8px;
+  background: white;
+  border: 1px solid $sta-nav-menu-active;
+}
+
+@media (max-width: 992px) {
+  .offer-border {
+    margin: 20px 0px;
+  }
+}
+
+/*************************************************
+ *  Hero Widget
+ **************************************************/
+
+ .hero_image {
+   padding-top: 300px;
+   padding-bottom: 50px;
+   animation: intro 0.3s both;
+   animation-delay: 0s;
+   animation-delay: 0.25s;
+   background-size: cover !important ;
+ }
+
+ .portfolio_hero_image {
+   background-size: cover !important;
+   padding-top: 700px;
+   padding-bottom: 50px;
+   color: white;
+ }
+
+.hero-title, .hero-subtitle , .hero-lead h2 {
+   color: $sta-secondary;
+ }
+
+.hero-btns .cta-btns .btn {
+  color: $sta-secondary;
+  border-color: $sta-secondary;
+}
+
+.hero-btns .cta-btns .btn:hover {
+  color: $sta-primary;
+  border-color: $sta-primary;
+  background-color: $sta-secondary !important;
+}
+
+ @media screen and (max-width: 768px) {
+   .hero_image  {
+     padding-top: 230px;
+     padding-bottom: 40px;
+   }
+
+   .portfolio_hero_image {
+     background-size: cover !important;
+     padding-top: 400px;
+     padding-bottom: 50px;
+   }
+ }
+
+
+ @media (min-width: 993px) {
+   .hero-title {
+     font-size: 2.4rem;
+     line-height: 0.7;
+     margin:1.5rem 0px;
+     text-align:right;
+   }
+
+   .hero-subtitle {
+     font-size: 2rem;
+     line-height: 0.7;
+     margin:1.5rem 0px;
+     text-align: right;
+   }
+
+
+   .hero-lead {
+     text-align: right;
+   }
+
+   .wg-hero .cta-btns {
+     margin: 50px 0px;
+     box-shadow: 0;
+     color: $sta-secondary;
+     text-align: right;
+   }
+}
+
+ @media (max-width: 992px) {
+
+   .hero-title {
+     line-height: 1em;
+     margin: 1rem 0px;
+     text-align: center;
+   }
+
+   .hero-subtitle {
+     line-height: 1em;
+     margin: 1rem 0px;
+     text-align: center;
+   }
+
+   .hero-lead {
+     text-align: center;
+     font-size: 1rem;
+   }
+
+   .wg-hero .btn-lg {
+     font-size: 0.6rem;
+   }
+
+   .wg-hero .cta-btns {
+     margin: 50px 0px;
+     box-shadow: 0;
+     text-align: center;
+   }
+
+ }
+
+.wg-hero .btn {
+  padding: .6em 0.8em;
+}
+
+.wg-hero .btn-lg {
+  font-size: 1.0rem;
+}
+
+/*************************************************
+ *  About widget
+ **************************************************/
+
+#profile {
+  text-align: center;
+  padding: 30px 10px;
+  position: relative;
+}
+
+.avatar {
+  width: 190px;
+  height: 190px;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+// Use smaller avatar size in About widget on small devices.
+@include media-breakpoint-down(sm) {
+  .wg-about .avatar {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.avatar-circle {
+  border-radius: 50%;
+}
+
+.avatar-square {
+  border-radius: 3px;
+}
+
+.portrait-title h2 {
+  font-size: 1.75em;
+  font-weight: 300;
+  color: $sta-primary;
+  margin: 20px 0 10px 0;
+}
+
+.portrait-title h3 {
+  font-size: 1rem;
+  font-weight: 300;
+  color: $sta-primary;
+  margin: 0px 0 10px 0;
+}
+
+ul.network-icon {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#profile .network-icon {
+  margin-top: 30px;
+}
+
+.network-icon li {
+  margin-right: 10px;
+}
+
+.network-icon li:last-of-type {
+  margin-right: 0;
+}
+
+.network-icon li:hover {
+  transform: scale(1.2)
+}
+
+.big-icon {
+  font-size: 2rem;
+}
+
+ul.ul-interests li {
+  font-size: 0.9rem;
+}
+
+ul.ul-edu {
+  list-style: none;
+}
+
+ul.ul-edu li {
+  position: relative;
+  padding: 0px 15px 4px 3px;
+}
+
+ul.ul-edu li .description p {
+  margin: 0;
+}
+
+ul.ul-edu li .description p.course {
+  font-size: 0.9rem;
+}
+
+ul.ul-edu li .description p.institution {
+  font-size: 0.75rem;
+  color: rgba(0,0,0,0.6);
+}
+
+
+/*************************************************
+ *  People widget
+ **************************************************/
+
+.people-widget {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.people-widget .portrait-title h2 {
+  font-size: 1rem;
+}
+
+.people-widget .portrait-title h3 {
+  font-size: 0.7rem;
+}
+
+.people-widget .avatar {
+  width: 80%;
+  max-width: 150px;
+  height: auto;
+}
+
+@media (min-width: 576px) {
+  .people-widget .col-sm-auto {
+    width: 30%;
+  }
+}
+@media (min-width: 992px) {
+  .people-widget .col-sm-auto {
+    width: 20%;
+  }
+}
+
+/*************************************************
+ *  Contact
+ **************************************************/
+
+ .long {
+   opacity: 0;
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 0;
+   width: 0;
+   z-index: -1;
+ }
+
+.contact-widget .fa-ul {
+  margin-left: 3.14285714rem; /* Must be > `fa-2x` icon size. */
+}
+
+.contact-widget .fa-li {
+  position: absolute;
+  left: -3.14285714rem; /* Negative of `.contact-widget .fa-ul` margin. */
+  width: 2rem; /* Match `fa-2x` icon size. */
+  top: 0.14285714em; /* Default FA value. */
+  text-align: center;
+}
+
+.contact-widget li {
+  padding-top: 0.8rem; /* Align text with bottom of `fa-2x` icon. */
+  margin-bottom: 0.3rem;
+}
+
+.contact-widget li:last-of-type {
+  margin-bottom: 0;
+}
+
+#map {
+  height: 350px;
+  width: 100%;
+}

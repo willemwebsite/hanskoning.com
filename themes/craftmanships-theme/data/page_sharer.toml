@@ -1,0 +1,25 @@
+# Page Sharer
+# Documentation: https://sourcethemes.com/academic/docs/customization/#page-sharer
+
+
+
+[[buttons]]
+  id = "email"
+  url = "mailto:?subject={title}&body={url}"
+  title = "Email"
+  icon = "pg-i-email"
+  enable = true
+
+[[buttons]]
+  id = "linkedin"
+  url = "https://www.linkedin.com/in/hans-koning-19a12118/?originalSubdomain=nl"
+  title = "LinkedIn"
+  icon = "pg-i-linkedin"
+  enable = true
+
+[[buttons]]
+  id = "instagram"
+  url = "https://www.instagram.com/hanskoning_kunstig/"
+  title = "Insgram"
+  icon = "pg-i-instagram"
+  enable = true

@@ -1,0 +1,20 @@
+{{- define "main" -}}
+{{ $class := "hero_image"}}
+<!-- layout is default-single -->
+<article class="article">
+  {{ partial "hero_partial" (dict "page" . "class" $class) }}
+
+  <div class="article-container">
+<style><!-- layout is default-single --></style>
+    <div class="article-style">
+      {{ .Content }}
+    </div>
+
+    {{ partial "contact_form" . }}
+
+    {{ partial "page_footer" . }}
+
+  </div>
+</article>
+
+{{- end -}}

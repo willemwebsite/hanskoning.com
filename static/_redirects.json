@@ -1,0 +1,25 @@
+{
+  "rules":[
+    {
+        "from": "/vergulden",
+        "to": "/technieken/vergulden/",
+        "code": 301
+    },
+    {
+        "from": "/marmer",
+        "to": "/technieken/marmer/",
+        "code": 301
+    },
+    {
+        "from": "/hout",
+        "to": "/technieken/hout/",
+        "code": 301
+    }
+  ],
+  "options":{
+    "mainDomain": "hanskoning.com",
+    "mainProtocol": "https",
+    "redirectAllToMainDomain": true,
+    "redirectCode": 301
+  }
+}

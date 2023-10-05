@@ -1,0 +1,51 @@
+name = "Mytheme"
+
+[backgrounds]
+even = "#edf1f1"
+footer = "#444f55"
+odd = "#fff"
+general = "#fff"
+nav = "#444f55"
+
+[typography]
+google_fonts = "Cormorant+Garamond:300,400|Bellefair|Poiret+One|Lato:100,300"
+
+  [typography.button]
+  color = "#1f2c32"
+  font = "Bellefair"
+  hover = "#1f2c32"
+
+  [typography.footer]
+  color = "#fff"
+
+  [typography.heading1]
+  color = "#2f333f"
+  font = "Bellefair"
+
+  [typography.heading2]
+  color = "#2f333f"
+  font = "Poiret One"
+
+  [typography.heading3]
+  color = "#2f333f"
+  font = "Cormorant Garamond"
+
+  [typography.heading4]
+  color = "#2f333f"
+  font = "Bellefair"
+
+  [typography.logo]
+  color = "#fff"
+  font = "Lato"
+
+  [typography.nav]
+  active = "#ddd"
+  color = "#fff"
+  font = "Cormorant Garamond"
+
+  [typography.primary]
+  color = "#1f2c32"
+  font = "Lato"
+
+  [typography.secondary]
+  color = "#fffdfb"

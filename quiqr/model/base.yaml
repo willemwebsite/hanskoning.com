@@ -1,0 +1,2472 @@
+build:
+  - config: /config/_default/config.yml
+    key: default
+collections:
+  - dataformat: yaml
+    extension: md
+    fields:
+      - key: draft
+        title: Draft
+        type: boolean
+      - key: active
+        title: Active
+        type: boolean
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: images
+        path: images
+        title: Images
+        type: bundle-manager
+      - key: featured_image
+        title: Featured image
+        type: string
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - key: align
+        title: Align
+        type: string
+      - fields:
+          - key: label
+            title: Label
+            type: string
+          - key: url
+            title: Url
+            type: string
+        groupdata: true
+        key: cta
+        title: Cta
+        type: section
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - key: resources
+        title: Resources
+        type: hidden
+      - key: weight
+        title: Weight
+        type: number
+      - key: widget
+        title: Widget
+        type: string
+    folder: content/home/highlight/
+    itemtitle: Highlight
+    key: highlight_
+    title: Highlight
+  - dataformat: yaml
+    extension: md
+    fields:
+      - key: draft
+        title: Draft
+        type: boolean
+      - key: title
+        title: Title
+        type: string
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: images
+        path: images
+        title: Images
+        type: bundle-manager
+      - key: featured_image
+        title: Featured image
+        type: string
+      - key: hero_image
+        title: Hero image
+        type: string
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - fields:
+          - key: css_class
+            title: Css class
+            type: string
+          - key: css_style
+            title: Css style
+            type: string
+        groupdata: true
+        key: advanced
+        title: Advanced
+        type: section
+      - key: categories
+        title: Categories
+        type: chips
+      - default: now
+        key: date
+        title: Date
+        type: date
+      - fields:
+          - fields:
+              - key: color
+                title: Color
+                type: string
+              - key: gradient_end
+                title: Gradient end
+                type: string
+              - key: gradient_start
+                title: Gradient start
+                type: string
+              - key: image
+                title: Image
+                type: string
+              - key: image_darken
+                title: Image darken
+                type: number
+              - key: image_parallax
+                title: Image parallax
+                type: boolean
+              - key: image_position
+                title: Image position
+                type: string
+              - key: image_size
+                title: Image size
+                type: string
+              - key: text_color_light
+                title: Text color light
+                type: boolean
+            groupdata: true
+            key: background
+            title: Background
+            type: section
+          - key: columns
+            title: Columns
+            type: number
+        groupdata: true
+        key: design
+        title: Design
+        type: section
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - key: lastmod
+        title: Lastmod
+        type: hidden
+      - key: publishdate
+        title: Publishdate
+        type: hidden
+      - key: resources
+        title: Resources
+        type: hidden
+      - key: size
+        title: Size
+        type: string
+    folder: content/contact/
+    itemtitle: Contact
+    key: c__contact
+    title: Contact
+  - dataformat: yaml
+    extension: md
+    fields:
+      - key: draft
+        title: Draft
+        type: boolean
+      - key: active
+        title: Active
+        type: boolean
+      - key: title
+        title: Title
+        type: string
+      - key: subtitle
+        title: Subtitle
+        type: string
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: images
+        path: images
+        title: Images
+        type: bundle-manager
+      - key: featured_image
+        title: Featured image
+        type: string
+      - key: hero_image
+        title: Hero image
+        type: string
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - key: authors
+        title: Authors
+        type: chips
+      - key: categories
+        title: Categories
+        type: chips
+      - key: color
+        title: Color
+        type: string
+      - default: now
+        key: date
+        title: Date
+        type: date
+      - fields:
+          - fields:
+              - key: color
+                title: Color
+                type: string
+              - key: gradient_end
+                title: Gradient end
+                type: string
+              - key: gradient_start
+                title: Gradient start
+                type: string
+              - key: image_darken
+                title: Image darken
+                type: number
+              - key: image_parallax
+                title: Image parallax
+                type: boolean
+              - key: image_position
+                title: Image position
+                type: string
+              - key: image_size
+                title: Image size
+                type: string
+              - key: text_color_light
+                title: Text color light
+                type: boolean
+            groupdata: true
+            key: background
+            title: Background
+            type: section
+          - key: columns
+            title: Columns
+            type: number
+        groupdata: true
+        key: design
+        title: Design
+        type: section
+      - key: email_form
+        title: Email form
+        type: boolean
+      - key: email_form_email
+        title: Email form email
+        type: string
+      - key: email_form_message
+        title: Email form message
+        type: string
+      - key: email_form_name
+        title: Email form name
+        type: string
+      - key: email_form_subtitle
+        title: Email form subtitle
+        type: string
+      - key: email_form_title
+        title: Email form title
+        type: string
+      - key: featured
+        title: Featured
+        type: boolean
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - key: lastmod
+        title: Lastmod
+        type: hidden
+      - key: projects
+        title: Projects
+        type: chips
+      - key: publishdate
+        title: Publishdate
+        type: hidden
+      - key: resources
+        title: Resources
+        type: hidden
+      - key: size
+        title: Size
+        type: string
+      - key: summary
+        title: Summary
+        type: markdown
+      - key: tags
+        title: Tags
+        type: chips
+      - key: technieken
+        title: Technieken
+        type: chips
+      - key: weight
+        title: Weight
+        type: number
+    folder: content/portfolio/
+    itemtitle: Portfolio
+    key: c__portfolio
+    title: Portfolio
+  - dataformat: yaml
+    extension: md
+    fields:
+      - key: draft
+        title: Draft
+        type: boolean
+      - key: title
+        title: Title
+        type: string
+      - key: subtitle
+        title: Subtitle
+        type: string
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: images
+        path: images
+        title: Images
+        type: bundle-manager
+      - key: featured_image
+        title: Featured image
+        type: string
+      - key: hero_image
+        title: Hero image
+        type: string
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - fields:
+          - key: css_class
+            title: Css class
+            type: string
+          - key: css_style
+            title: Css style
+            type: string
+        groupdata: true
+        key: advanced
+        title: Advanced
+        type: section
+      - key: authors
+        title: Authors
+        type: chips
+      - key: categories
+        title: Categories
+        type: chips
+      - default: now
+        key: date
+        title: Date
+        type: date
+      - fields:
+          - fields:
+              - key: color
+                title: Color
+                type: string
+              - key: gradient_end
+                title: Gradient end
+                type: string
+              - key: gradient_start
+                title: Gradient start
+                type: string
+              - key: image_darken
+                title: Image darken
+                type: number
+              - key: image_parallax
+                title: Image parallax
+                type: boolean
+              - key: image_position
+                title: Image position
+                type: string
+              - key: image_size
+                title: Image size
+                type: string
+              - key: text_color_light
+                title: Text color light
+                type: boolean
+            groupdata: true
+            key: background
+            title: Background
+            type: section
+          - key: columns
+            title: Columns
+            type: number
+        groupdata: true
+        key: design
+        title: Design
+        type: section
+      - key: email_form
+        title: Email form
+        type: boolean
+      - key: email_form_email
+        title: Email form email
+        type: string
+      - key: email_form_message
+        title: Email form message
+        type: string
+      - key: email_form_name
+        title: Email form name
+        type: string
+      - key: email_form_subtitle
+        title: Email form subtitle
+        type: string
+      - key: email_form_title
+        title: Email form title
+        type: string
+      - key: featured
+        title: Featured
+        type: boolean
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - key: lastmod
+        title: Lastmod
+        type: hidden
+      - key: projects
+        title: Projects
+        type: chips
+      - key: publishdate
+        title: Publishdate
+        type: hidden
+      - key: resources
+        title: Resources
+        type: hidden
+      - key: size
+        title: Size
+        type: string
+      - key: summary
+        title: Summary
+        type: string
+      - key: tags
+        title: Tags
+        type: chips
+    folder: content/pages/
+    itemtitle: Page
+    key: c__pages
+    title: Pages
+  - dataformat: yaml
+    extension: md
+    fields:
+      - key: draft
+        title: Draft
+        type: boolean
+      - key: title
+        title: Title
+        type: string
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: page_related_images
+        path: ""
+        title: Page related images
+        type: bundle-manager
+      - key: featured_image
+        title: Featured image
+        type: string
+      - key: hero_image
+        title: Hero image
+        type: string
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - key: color
+        title: Color
+        type: string
+      - key: email_form
+        title: Email form
+        type: boolean
+      - key: email_form_email
+        title: Email form email
+        type: string
+      - key: email_form_message
+        title: Email form message
+        type: string
+      - key: email_form_name
+        title: Email form name
+        type: string
+      - key: email_form_subtitle
+        title: Email form subtitle
+        type: string
+      - key: email_form_title
+        title: Email form title
+        type: string
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - key: resources
+        title: Resources
+        type: hidden
+    folder: content/technieken/
+    itemtitle: Technieken
+    key: c__technieken
+    title: Technieken
+  - dataformat: yaml
+    extension: md
+    fields:
+      - key: draft
+        title: Draft
+        type: boolean
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: images
+        path: images
+        title: Images
+        type: bundle-manager
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - key: authors
+        title: Authors
+        type: chips
+      - key: avatar
+        title: Avatar
+        type: string
+      - key: bio
+        title: Bio
+        type: markdown
+      - key: email
+        title: Email
+        type: string
+      - key: interests
+        title: Interests
+        type: chips
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - key: name
+        title: Name
+        type: string
+      - fields:
+          - arrayTitle: true
+            key: name
+            title: Name
+            type: string
+          - key: url
+            title: Url
+            type: string
+        key: organizations
+        title: Organizations
+        type: accordion
+      - key: resources
+        title: Resources
+        type: hidden
+      - key: role
+        title: Role
+        type: string
+      - fields:
+          - arrayTitle: true
+            key: icon
+            title: Icon
+            type: string
+          - key: icon_pack
+            title: Icon pack
+            type: string
+          - key: link
+            title: Link
+            type: string
+        key: social
+        title: Social
+        type: accordion
+      - key: superuser
+        title: Superuser
+        type: boolean
+      - key: user_groups
+        title: User groups
+        type: chips
+    folder: content/team/
+    itemtitle: Team
+    key: c__team
+    title: Team
+hugover: extended_0.76.5
+menu:
+  - key: home
+    menuItems:
+      - key: highlight_
+      - key: h__hero
+      - key: h__portfolio
+      - key: h__contact
+      - key: h__about
+      - key: h__reviews
+      - key: h__instagram
+    title: Home
+  - key: singles
+    menuItems:
+      - key: s__portfolio
+      - key: s__privacy
+      - key: s__terms
+    title: Pages
+  - key: collections
+    menuItems:
+      - key: c__contact
+      - key: c__pages
+      - key: c__portfolio
+      - key: c__team
+      - key: c__technieken
+    title: Groups
+  - key: general
+    menuItems:
+      - key: menus
+      - key: params
+      - key: img_static
+      - key: img_static
+      - key: img_static_image
+    title: General
+  - key: poppygo
+    menuItems:
+      - key: pogohome
+      - key: pogoredirects
+    title: PoppyGo
+serve:
+  - config: /config/_default/config.yml
+    key: default
+singles:
+  - dataformat: yml
+    fields:
+      - fields:
+          - key: identifier
+            title: Identifier
+            type: string
+          - arrayTitle: true
+            key: name
+            title: Name
+            type: string
+          - key: parent
+            title: Parent
+            type: string
+          - key: url
+            title: Url
+            type: string
+          - key: weight
+            title: Weight
+            type: number
+        key: main
+        title: Main
+        type: accordion
+    file: config/_default/menus.yml
+    key: menus
+    title: Menus
+  - dataformat: yml
+    fields:
+      - key: abstract_length
+        title: Abstract length
+        type: number
+      - fields:
+          - key: city
+            title: City
+            type: string
+          - key: country
+            title: Country
+            type: string
+          - key: country_code
+            title: Country code
+            type: string
+          - key: postcode
+            title: Postcode
+            type: string
+          - key: region
+            title: Region
+            type: string
+          - key: street
+            title: Street
+            type: string
+        groupdata: true
+        key: address
+        title: Address
+        type: section
+      - key: address_format
+        title: Address format
+        type: string
+      - fields:
+          - fields:
+              - key: delimiters
+                title: Delimiters
+                type: chips
+              - key: order
+                title: Order
+                type: chips
+            groupdata: true
+            key: de
+            title: De
+            type: section
+          - fields:
+              - key: delimiters
+                title: Delimiters
+                type: chips
+              - key: order
+                title: Order
+                type: chips
+            groupdata: true
+            key: en-gb
+            title: En gb
+            type: section
+          - fields:
+              - key: delimiters
+                title: Delimiters
+                type: chips
+              - key: order
+                title: Order
+                type: chips
+            groupdata: true
+            key: en-us
+            title: En us
+            type: section
+          - fields:
+              - key: delimiters
+                title: Delimiters
+                type: chips
+              - key: order
+                title: Order
+                type: chips
+            groupdata: true
+            key: nl-nl
+            title: Nl nl
+            type: section
+          - fields:
+              - key: delimiters
+                title: Delimiters
+                type: chips
+              - key: order
+                title: Order
+                type: chips
+            groupdata: true
+            key: zh
+            title: Zh
+            type: section
+        groupdata: true
+        key: address_formats
+        title: Address formats
+        type: section
+      - key: appointment_url
+        title: Appointment url
+        type: hidden
+      - fields:
+          - key: gravatar
+            title: Gravatar
+            type: boolean
+          - key: shape
+            title: Shape
+            type: string
+        groupdata: true
+        key: avatar
+        title: Avatar
+        type: section
+      - fields:
+          - fields:
+              - key: docs
+                title: Docs
+                type: boolean
+              - key: page
+                title: Page
+                type: boolean
+              - key: post
+                title: Post
+                type: boolean
+              - key: project
+                title: Project
+                type: boolean
+              - key: publication
+                title: Publication
+                type: boolean
+              - key: talk
+                title: Talk
+                type: boolean
+            groupdata: true
+            key: commentable
+            title: Commentable
+            type: section
+          - fields:
+              - key: url
+                title: Url
+                type: string
+            groupdata: true
+            key: commento
+            title: Commento
+            type: section
+          - fields:
+              - key: shortname
+                title: Shortname
+                type: string
+              - key: show_count
+                title: Show count
+                type: boolean
+            groupdata: true
+            key: disqus
+            title: Disqus
+            type: section
+          - key: engine
+            title: Engine
+            type: number
+        groupdata: true
+        key: comments
+        title: Comments
+        type: section
+      - fields:
+          - key: icon
+            title: Icon
+            type: string
+          - key: icon_pack
+            title: Icon pack
+            type: string
+          - key: link
+            title: Link
+            type: markdown
+          - arrayTitle: true
+            key: name
+            title: Name
+            type: string
+        key: contact_links
+        title: Contact links
+        type: accordion
+      - fields:
+          - key: latitude
+            title: Latitude
+            type: string
+          - key: longitude
+            title: Longitude
+            type: string
+        groupdata: true
+        key: coordinates
+        title: Coordinates
+        type: section
+      - key: date_format
+        title: Date format
+        type: string
+      - key: day_night
+        title: Day night
+        type: boolean
+      - key: description
+        title: Description
+        type: markdown
+      - key: docs_section_pager
+        title: Docs section pager
+        type: boolean
+      - fields:
+          - key: content_dir
+            title: Content dir
+            type: string
+          - fields:
+              - key: docs
+                title: Docs
+                type: boolean
+              - key: page
+                title: Page
+                type: boolean
+              - key: post
+                title: Post
+                type: boolean
+            groupdata: true
+            key: editable
+            title: Editable
+            type: section
+          - key: repo_branch
+            title: Repo branch
+            type: string
+          - key: repo_url
+            title: Repo url
+            type: string
+        groupdata: true
+        key: edit_page
+        title: Edit page
+        type: section
+      - key: email
+        title: Email
+        type: string
+      - key: follow_me
+        title: Follow me
+        type: string
+      - key: follow_me_account
+        title: Follow me account
+        type: string
+      - key: font
+        title: Font
+        type: string
+      - key: font_size
+        title: Font size
+        type: string
+      - key: footer_logo
+        title: Footer logo
+        type: string
+      - key: instagram_account
+        title: Instagram account
+        type: string
+      - key: instagram_feed
+        title: Instagram feed
+        type: boolean
+      - key: languagecode
+        title: Languagecode
+        type: string
+      - key: link_authors
+        title: Link authors
+        type: boolean
+      - key: local_business_type
+        title: Local business type
+        type: string
+      - fields:
+          - key: align
+            title: Align
+            type: string
+          - key: show_logo
+            title: Show logo
+            type: boolean
+        groupdata: true
+        key: main_menu
+        title: Main menu
+        type: section
+      - key: mainSections
+        title: Main sections
+        type: chips
+      - fields:
+          - key: api_key
+            title: Api key
+            type: string
+          - key: engine
+            title: Engine
+            type: number
+          - key: zoom
+            title: Zoom
+            type: number
+        groupdata: true
+        key: map
+        title: Map
+        type: section
+      - fields:
+          - key: google_analytics
+            title: Google analytics
+            type: string
+          - key: google_tag_manager
+            title: Google tag manager
+            type: string
+        groupdata: true
+        key: marketing
+        title: Marketing
+        type: section
+      - key: org_name
+        title: Org name
+        type: string
+      - key: phone
+        title: Phone
+        type: string
+      - key: plugins_js
+        title: Plugins js
+        type: chips
+      - key: pogoform
+        title: Pogoform
+        type: string
+      - key: privacy_pack
+        title: Privacy pack
+        type: boolean
+      - fields:
+          - key: post_view
+            title: Post view
+            type: string
+          - key: publication_view
+            title: Publication view
+            type: string
+          - key: talk_view
+            title: Talk view
+            type: string
+        groupdata: true
+        key: projects
+        title: Projects
+        type: section
+      - fields:
+          - key: citation_style
+            title: Citation style
+            type: string
+          - key: date_format
+            title: Date format
+            type: string
+        groupdata: true
+        key: publications
+        title: Publications
+        type: section
+      - key: reading_time
+        title: Reading time
+        type: boolean
+      - key: resources
+        title: Resources
+        type: hidden
+      - fields:
+          - key: engine
+            title: Engine
+            type: number
+        groupdata: true
+        key: search
+        title: Search
+        type: section
+      - key: section_pager
+        title: Section pager
+        type: boolean
+      - key: sharing
+        title: Sharing
+        type: boolean
+      - key: sharing_image
+        title: Sharing image
+        type: string
+      - key: site_type
+        title: Site type
+        type: string
+      - key: text_logo
+        title: Text logo
+        type: string
+      - key: theme
+        title: Theme
+        type: string
+      - key: time_format
+        title: Time format
+        type: string
+      - key: twitter
+        title: Twitter
+        type: string
+    file: config/_default/params.yml
+    key: params
+    title: Settings
+  - dataformat: md
+    fields:
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: images
+        path: images/
+        title: Images
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: img
+        path: img/
+        title: Img
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: webfonts
+        path: webfonts/
+        title: Webfonts
+        type: bundle-manager
+    file: static/.pogo-images.md
+    key: img_static
+    title: General images
+  - dataformat: md
+    fields:
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: images
+        path: images/
+        title: Images
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: img
+        path: img/
+        title: Img
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: webfonts
+        path: webfonts/
+        title: Webfonts
+        type: bundle-manager
+    file: static/.pogo-images.md
+    key: img_static
+    title: General images
+  - dataformat: md
+    fields:
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: headers
+        path: headers/
+        title: Headers
+        type: bundle-manager
+    file: static/img/.pogo-images.md
+    key: img_static_image
+    title: Grouped images
+  - dataformat: yaml
+    fields:
+      - content: 'Relative link of this page: '
+        key: info-h__hero
+        theme: gray-bare
+        title: Info h hero
+        type: info
+      - key: draft
+        title: Draft
+        type: boolean
+      - key: active
+        title: Active
+        type: boolean
+      - key: title
+        title: Title
+        type: string
+      - key: subtitle
+        title: Subtitle
+        type: string
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: page_related_images
+        path: images/
+        title: Page related images
+        type: bundle-manager
+      - key: background_image
+        title: Background image
+        type: string
+      - key: featured_image
+        title: Featured image
+        type: string
+      - key: hero_image
+        title: Hero image
+        type: string
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - fields:
+          - key: icon
+            title: Icon
+            type: string
+          - key: icon_pack
+            title: Icon pack
+            type: string
+          - key: label
+            title: Label
+            type: string
+          - key: url
+            title: Url
+            type: string
+        groupdata: true
+        key: cta
+        title: Cta
+        type: section
+      - fields:
+          - fields:
+              - key: color
+                title: Color
+                type: string
+              - key: gradient_end
+                title: Gradient end
+                type: string
+              - key: gradient_start
+                title: Gradient start
+                type: string
+              - key: image_darken
+                title: Image darken
+                type: string
+              - key: image_lighten
+                title: Image lighten
+                type: string
+              - key: image_parallax
+                title: Image parallax
+                type: boolean
+              - key: image_position
+                title: Image position
+                type: string
+              - key: image_size
+                title: Image size
+                type: string
+              - key: text_color_light
+                title: Text color light
+                type: boolean
+            groupdata: true
+            key: background
+            title: Background
+            type: section
+          - key: columns
+            title: Columns
+            type: number
+        groupdata: true
+        key: design
+        title: Design
+        type: section
+      - key: headless
+        title: Headless
+        type: boolean
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - key: resources
+        title: Resources
+        type: hidden
+      - key: weight
+        title: Weight
+        type: number
+      - key: widget
+        title: Widget
+        type: string
+    file: content/home/hero/index.md
+    key: h__hero
+    title: Hero
+  - dataformat: yaml
+    fields:
+      - content: 'Relative link of this page: '
+        key: info-h__portfolio
+        theme: gray-bare
+        title: Info h portfolio
+        type: info
+      - key: draft
+        title: Draft
+        type: boolean
+      - key: active
+        title: Active
+        type: boolean
+      - key: title
+        title: Title
+        type: string
+      - key: subtitle
+        title: Subtitle
+        type: string
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: page_related_images
+        path: images/
+        title: Page related images
+        type: bundle-manager
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - fields:
+          - key: count
+            title: Count
+            type: number
+          - fields:
+              - key: author
+                title: Author
+                type: string
+              - key: category
+                title: Category
+                type: string
+              - key: exclude_featured
+                title: Exclude featured
+                type: boolean
+              - key: publication_type
+                title: Publication type
+                type: string
+              - key: tag
+                title: Tag
+                type: string
+            groupdata: true
+            key: filters
+            title: Filters
+            type: section
+          - key: offset
+            title: Offset
+            type: number
+          - key: order
+            title: Order
+            type: string
+          - key: page_type
+            title: Page type
+            type: string
+        groupdata: true
+        key: content
+        title: Content
+        type: section
+      - fields:
+          - fields:
+              - key: color
+                title: Color
+                type: string
+              - key: gradient_end
+                title: Gradient end
+                type: string
+              - key: gradient_start
+                title: Gradient start
+                type: string
+              - key: image_darken
+                title: Image darken
+                type: string
+              - key: text_color_light
+                title: Text color light
+                type: string
+            groupdata: true
+            key: background
+            title: Background
+            type: section
+          - key: view
+            title: View
+            type: string
+        groupdata: true
+        key: design
+        title: Design
+        type: section
+      - key: headless
+        title: Headless
+        type: boolean
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - key: resources
+        title: Resources
+        type: hidden
+      - key: taxonomy
+        title: Taxonomy
+        type: string
+      - key: weight
+        title: Weight
+        type: number
+      - key: widget
+        title: Widget
+        type: string
+    file: content/home/portfolio.md
+    key: h__portfolio
+    title: Portfolio
+  - dataformat: yaml
+    fields:
+      - content: 'Relative link of this page: '
+        key: info-h__contact
+        theme: gray-bare
+        title: Info h contact
+        type: info
+      - key: draft
+        title: Draft
+        type: boolean
+      - key: active
+        title: Active
+        type: boolean
+      - key: title
+        title: Title
+        type: string
+      - key: subtitle
+        title: Subtitle
+        type: string
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: page_related_images
+        path: images/
+        title: Page related images
+        type: bundle-manager
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - key: autolink
+        title: Autolink
+        type: boolean
+      - key: email_form
+        title: Email form
+        type: number
+      - key: headless
+        title: Headless
+        type: boolean
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - key: resources
+        title: Resources
+        type: hidden
+      - key: weight
+        title: Weight
+        type: number
+      - key: widget
+        title: Widget
+        type: string
+    file: content/home/contact.md
+    key: h__contact
+    title: Contact
+  - dataformat: yaml
+    fields:
+      - content: 'Relative link of this page: '
+        key: info-h__about
+        theme: gray-bare
+        title: Info h about
+        type: info
+      - key: draft
+        title: Draft
+        type: boolean
+      - key: active
+        title: Active
+        type: boolean
+      - key: title
+        title: Title
+        type: string
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: page_related_images
+        path: images/
+        title: Page related images
+        type: bundle-manager
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - key: author
+        title: Author
+        type: string
+      - key: headless
+        title: Headless
+        type: boolean
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - key: weight
+        title: Weight
+        type: number
+      - key: widget
+        title: Widget
+        type: string
+    file: content/home/about.md
+    key: h__about
+    title: About
+  - dataformat: yaml
+    fields:
+      - content: 'Relative link of this page: '
+        key: info-h__reviews
+        theme: gray-bare
+        title: Info h reviews
+        type: info
+      - key: draft
+        title: Draft
+        type: boolean
+      - key: active
+        title: Active
+        type: boolean
+      - key: title
+        title: Title
+        type: string
+      - key: subtitle
+        title: Subtitle
+        type: string
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: page_related_images
+        path: images/
+        title: Page related images
+        type: bundle-manager
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - key: date_format
+        title: Date format
+        type: string
+      - key: headless
+        title: Headless
+        type: boolean
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - fields:
+          - key: content
+            title: Content
+            type: markdown
+          - key: date
+            title: Date
+            type: string
+          - key: image
+            title: Image
+            type: string
+          - arrayTitle: true
+            key: name
+            title: Name
+            type: string
+          - key: quote
+            title: Quote
+            type: string
+        key: review
+        title: Review
+        type: accordion
+      - key: weight
+        title: Weight
+        type: number
+      - key: widget
+        title: Widget
+        type: string
+    file: content/home/reviews/index.md
+    key: h__reviews
+    title: Reviews
+  - dataformat: yaml
+    fields:
+      - content: 'Relative link of this page: '
+        key: info-h__instagram
+        theme: gray-bare
+        title: Info h instagram
+        type: info
+      - key: draft
+        title: Draft
+        type: boolean
+      - key: active
+        title: Active
+        type: boolean
+      - key: subtitle
+        title: Subtitle
+        type: string
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: page_related_images
+        path: images/
+        title: Page related images
+        type: bundle-manager
+      - key: background_image
+        title: Background image
+        type: string
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - key: headless
+        title: Headless
+        type: boolean
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - key: resources
+        title: Resources
+        type: hidden
+      - key: Title
+        title: Title
+        type: string
+      - key: weight
+        title: Weight
+        type: number
+      - key: widget
+        title: Widget
+        type: string
+    file: content/home/instagram.md
+    key: h__instagram
+    title: Instagram
+  - dataformat: yaml
+    fields:
+      - content: 'Relative link of this page: /privacy/'
+        key: info-s__privacy
+        theme: gray-bare
+        title: Info s privacy
+        type: info
+      - key: draft
+        title: Draft
+        type: boolean
+      - key: title
+        title: Title
+        type: string
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: page_related_images
+        path: images/
+        title: Page related images
+        type: bundle-manager
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - key: commentable
+        title: Commentable
+        type: boolean
+      - default: now
+        key: date
+        title: Date
+        type: date
+      - key: editable
+        title: Editable
+        type: boolean
+      - fields:
+          - key: caption
+            title: Caption
+            type: string
+          - key: image
+            title: Image
+            type: string
+        groupdata: true
+        key: header
+        title: Header
+        type: section
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - key: lastmod
+        title: Lastmod
+        type: hidden
+      - key: publishdate
+        title: Publishdate
+        type: hidden
+      - key: share
+        title: Share
+        type: boolean
+    file: content/privacy.md
+    key: s__privacy
+    title: Privacy
+  - dataformat: yaml
+    fields:
+      - content: 'Relative link of this page: /terms/'
+        key: info-s__terms
+        theme: gray-bare
+        title: Info s terms
+        type: info
+      - key: draft
+        title: Draft
+        type: boolean
+      - key: title
+        title: Title
+        type: string
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: page_related_images
+        path: images/
+        title: Page related images
+        type: bundle-manager
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - key: commentable
+        title: Commentable
+        type: boolean
+      - default: now
+        key: date
+        title: Date
+        type: date
+      - key: editable
+        title: Editable
+        type: boolean
+      - fields:
+          - key: caption
+            title: Caption
+            type: string
+          - key: image
+            title: Image
+            type: string
+        groupdata: true
+        key: header
+        title: Header
+        type: section
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - key: lastmod
+        title: Lastmod
+        type: hidden
+      - key: publishdate
+        title: Publishdate
+        type: hidden
+      - key: share
+        title: Share
+        type: boolean
+    file: content/terms.md
+    key: s__terms
+    title: Terms
+  - dataformat: yaml
+    fields:
+      - content: 'Relative link of this page: /portfolio/'
+        key: info-s__portfolio
+        theme: gray-bare
+        title: Info s portfolio
+        type: info
+      - key: draft
+        title: Draft
+        type: boolean
+      - key: active
+        title: Active
+        type: boolean
+      - key: title
+        title: Title
+        type: string
+      - key: featured_image
+        title: Featured image
+        type: string
+      - key: hero_image
+        title: Hero image
+        type: string
+      - key: mainContent
+        title: Main content
+        type: markdown
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: Kerkorgel_bladgoudrestauratie
+        path: Kerkorgel_bladgoudrestauratie
+        title: Kerkorgel bladgoudrestauratie
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: Stucwerk-restauratie
+        path: Stucwerk-restauratie
+        title: Stucwerk restauratie
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: academiegebouw-utrecht
+        path: academiegebouw-utrecht
+        title: Academiegebouw utrecht
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: academiegebouw_wapen
+        path: academiegebouw_wapen
+        title: Academiegebouw wapen
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: achterglasvergulden
+        path: achterglasvergulden
+        title: Achterglasvergulden
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: ceder
+        path: ceder
+        title: Ceder
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: dominicus_kerk_amsterdam
+        path: dominicus_kerk_amsterdam
+        title: Dominicus kerk amsterdam
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: eiken
+        path: eiken
+        title: Eiken
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: eiken-imitatie
+        path: eiken-imitatie
+        title: Eiken imitatie
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: eiken-imitatie-deur
+        path: eiken-imitatie-deur
+        title: Eiken imitatie deur
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: fleuri
+        path: fleuri
+        title: Fleuri
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: frits-philips-muziekgebouw
+        path: frits-philips-muziekgebouw
+        title: Frits philips muziekgebouw
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: gevelsteen_jordaan
+        path: gevelsteen_jordaan
+        title: Gevelsteen jordaan
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: goud-in-epoxy
+        path: goud-in-epoxy
+        title: Goud in epoxy
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: gouden-letters
+        path: gouden-letters
+        title: Gouden letters
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: gouden-slang
+        path: gouden-slang
+        title: Gouden slang
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: gouden-wanden
+        path: gouden-wanden
+        title: Gouden wanden
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: gouden-wapen
+        path: gouden-wapen
+        title: Gouden wapen
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: grandantique
+        path: grandantique
+        title: Grandantique
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: hanslettertram
+        path: hanslettertram
+        title: Hanslettertram
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: hout-authentieke-details
+        path: hout-authentieke-details
+        title: Hout authentieke details
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: jacht_interieur
+        path: jacht_interieur
+        title: Jacht interieur
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: koninklijk-varken
+        path: koninklijk-varken
+        title: Koninklijk varken
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: koper-oxidatie-imitatie
+        path: koper-oxidatie-imitatie
+        title: Koper oxidatie imitatie
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: kunstmin_marmerimitatie
+        path: kunstmin_marmerimitatie
+        title: Kunstmin marmerimitatie
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: kunstwerk_ricardo
+        path: kunstwerk_ricardo
+        title: Kunstwerk ricardo
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: mahoniesample
+        path: mahoniesample
+        title: Mahoniesample
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: marmergroningen
+        path: marmergroningen
+        title: Marmergroningen
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: palissander
+        path: palissander
+        title: Palissander
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: portor_zuil
+        path: portor_zuil
+        title: Portor zuil
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: restauratie1
+        path: restauratie1
+        title: Restauratie1
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: restauratieplafond
+        path: restauratieplafond
+        title: Restauratieplafond
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: restauratiewesterstraat
+        path: restauratiewesterstraat
+        title: Restauratiewesterstraat
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: roodmarmer
+        path: roodmarmer
+        title: Roodmarmer
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: synagoge_deuren_sjoel_
+        path: synagoge_deuren_sjoel_
+        title: 'Synagoge deuren sjoel '
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: ter-stege
+        path: ter-stege
+        title: Ter stege
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: tram
+        path: tram
+        title: Tram
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: trompr_loeil
+        path: trompr_loeil
+        title: Trompr loeil
+        type: bundle-manager
+      - extensions:
+          - jpg
+          - png
+          - jpeg
+          - pdf
+          - svg
+        fields:
+          - key: thumb
+            title: Thumb
+            type: bundle-image-thumbnail
+        key: wilhelmina_verguldwerk
+        path: wilhelmina_verguldwerk
+        title: Wilhelmina verguldwerk
+        type: bundle-manager
+      - key: color
+        title: Color
+        type: string
+      - fields:
+          - fields:
+              - key: color
+                title: Color
+                type: string
+              - key: gradient_end
+                title: Gradient end
+                type: string
+              - key: gradient_start
+                title: Gradient start
+                type: string
+              - key: image_darken
+                title: Image darken
+                type: string
+              - key: image_lighten
+                title: Image lighten
+                type: string
+              - key: image_parallax
+                title: Image parallax
+                type: boolean
+              - key: image_position
+                title: Image position
+                type: string
+              - key: image_size
+                title: Image size
+                type: string
+              - key: text_color_light
+                title: Text color light
+                type: boolean
+            groupdata: true
+            key: background
+            title: Background
+            type: section
+          - key: columns
+            title: Columns
+            type: number
+        groupdata: true
+        key: design
+        title: Design
+        type: section
+      - key: email_form
+        title: Email form
+        type: boolean
+      - key: email_form_email
+        title: Email form email
+        type: string
+      - key: email_form_message
+        title: Email form message
+        type: string
+      - key: email_form_name
+        title: Email form name
+        type: string
+      - key: email_form_subtitle
+        title: Email form subtitle
+        type: string
+      - key: email_form_title
+        title: Email form title
+        type: string
+      - key: iscjklanguage
+        title: Iscjklanguage
+        type: hidden
+      - key: resources
+        title: Resources
+        type: hidden
+      - key: size
+        title: Size
+        type: string
+      - key: technieken
+        title: Technieken
+        type: chips
+      - key: weight
+        title: Weight
+        type: number
+    file: content/portfolio/_index.md
+    key: s__portfolio
+    title: Portfolio
+  - dataformat: md
+    fields:
+      - key: mainContent
+        title: Main content
+        type: markdown
+    file: poppygo/home/index.md
+    key: pogohome
+    title: Home
+  - dataformat: json
+    fields:
+      - fields:
+          - key: mainDomain
+            title: Main domain
+            type: string
+          - key: mainProtocol
+            title: Main protocol
+            type: string
+          - key: redirectAllToMainDomain
+            title: Redirect all to main domain
+            type: boolean
+          - key: redirectCode
+            title: Redirect code
+            type: number
+        groupdata: true
+        key: options
+        title: Options
+        type: section
+      - fields:
+          - key: code
+            title: Code
+            type: number
+          - key: from
+            title: From
+            type: string
+          - arrayTitle: true
+            key: to
+            title: To
+            type: string
+        key: rules
+        title: Rules
+        type: accordion
+    file: static/_redirects.json
+    key: pogoredirects
+    title: Redirects

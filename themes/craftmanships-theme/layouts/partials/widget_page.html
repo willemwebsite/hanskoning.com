@@ -1,0 +1,61 @@
+{{/* Notify JS that this is a widget page */}}
+<span class="js-widget-page d-none"></span>
+
+{{/* Get widget page */}}
+{{ $page := "" }}
+{{ $headless_bundle := "" }}
+{{ if .IsHome }}
+  {{ $page = "/home/index.md" }}
+  {{ $headless_bundle = site.GetPage $page }}
+  {{/* Check homepage exists */}}
+  {{ if not $headless_bundle }}
+    {{ errorf "Homepage not found at %s!" $page }}
+    {{ errorf "Add the `/home/index.md` homepage file to each language's content folder. For example, your site should have a `content/home/` folder containing `index.md` and your homepage sections, or for multi-language sites, `content/en/home/` and `content/zh/home/` etc. Refer to the 'Build Your Homepage' ." }}
+  {{ end }}
+{{ else }}
+  {{ $page = .File.Path }}
+  {{ $headless_bundle = site.GetPage $page }}
+  {{/* Check widget page exists. */}}
+  {{ if not $headless_bundle }}
+    {{ errorf "Widget Page not found at %s!" $page }}
+    {{ errorf "View the Widget Page documentation ." }}
+    {{ errorf "Maybe a bug" }}
+  {{ end }}
+{{ end }}
+
+{{/* Load page sections */}}
+{{ range $index, $st := where ( $headless_bundle.Resources.ByType "page" ) ".Params.active" "!=" false }}
+  {{/* Begin widget styling */}}
+  {{ $bg := $st.Params.design.background }}
+
+  {{/* Get the styling from the styling functions */}}
+
+  {{ $widget := or $st.Params.widget "blank" }}
+  {{ if eq $widget "custom" }}{{ $widget = "blank" }}{{ end }}{{/* Support legacy Custom widget */}}
+  {{ if eq $widget "projects" }}{{ $widget = "portfolio" }}{{ end }}{{/* Support legacy Projects widget */}}
+
+
+  {{/* Fix Hugo's ContentBaseName returning wrong file base name when page section is within a bundle. */}}
+  {{ $hash_id := replace $st.File.ContentBaseName "index" (path.Base (path.Split .Path).Dir) }}
+
+  {{ $widget := or $st.Params.widget "blank" }}
+  {{ if eq $widget "custom" }}{{ $widget = "blank" }}{{ end }}{{/* Support legacy Custom widget */}}
+  {{ if eq $widget "projects" }}{{ $widget = "portfolio" }}{{ end }}{{/* Support legacy Projects widget */}}
+
+  {{ $widget_path := printf "widgets/%s.html" $widget }}
+  {{ $widget_args := dict "root" $ "page" $st "hash_id" $hash_id }}
+
+  {{ $use_container := true}}
+
+  {{ if eq $widget "hero"}}
+    {{ $use_container = false }}
+  {{ else }}
+    {{ $use_container = true }}
+  {{ end }}
+
+  <section id="{{$hash_id}}" class="home-section {{printf "wg-%s" (replace $widget "_" "-")}}" >
+    {{if $use_container}}<div class="container">{{end}}
+      {{ partial $widget_path $widget_args }}
+    {{if $use_container}}</div>{{end}}
+  </section>
+{{ end }}

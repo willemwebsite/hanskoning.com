@@ -1,0 +1,65 @@
+{{ $page := .page }}
+{{ $bg := $page.Params.design.background }}
+{{ $css_class := "hero_image"}}
+{{ $path := "hero/images/" }}
+{{ $resource_page := site.GetPage "/home/index.md" }}
+
+<div class="hero_image">
+  {{ partial "functions/get_background_style" (dict "page" $page "css_class" $css_class "bg_image" $page.Params.hero_image "path" $path "resource_page" $resource_page )}}
+
+  <div class="container">
+      <h1 class="hero-title">
+        {{ with $page.Title }}{{ . | markdownify }}{{ end }}
+      </h1>
+
+      {{ with $page.Content }}
+      <div class="hero-lead">{{ . }}</div>
+      {{ end }}
+
+      {{ if $page.Params.cta.url }}
+        {{ $button_css := "hero-btns" }}
+        {{ partial "cta" (dict "page" $page "css_class" $button_css) }}
+      {{ end }}
+
+{{/*
+      {{ if $page.Params.cta.url }}
+        {{ $pack := or $page.Params.cta.icon_pack "fas" }}
+        {{ $pack_prefix := $pack }}
+        {{ if in (slice "fab" "fas" "far" "fal") $pack }}
+          {{ $pack_prefix = "fa" }}
+        {{ end }}
+        {{ $link := $page.Params.cta.url }}
+        {{ $scheme := (urls.Parse $link).Scheme }}
+        {{ $target := "" }}
+        {{ if not $scheme }}
+          {{ $link = $link | relLangURL }}
+        {{ else if in (slice "http" "https") $scheme }}
+          {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+        {{ end }}
+      <div class= "hero-btns">
+      <p class="cta-btns">
+        <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} class="btn btn-lg">{{ if $page.Params.cta.icon }}<i class="{{ $pack }} {{ $pack_prefix }}-{{ $page.Params.cta.icon }} pr-1" aria-hidden="true"></i>{{end}}{{ $page.Params.cta.label | markdownify | emojify | safeHTML }}</a>
+      </p>
+      </div>
+        {{ if $page.Params.cta_alt.url }}
+          {{ $link := $page.Params.cta_alt.url }}
+          {{ $scheme := (urls.Parse $link).Scheme }}
+          {{ $target := "" }}
+          {{ if not $scheme }}
+            {{ $link = $link | relLangURL }}
+          {{ else if in (slice "http" "https") $scheme }}
+            {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+          {{ end }}
+        <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} class="hero-cta-alt pl-4">{{ $page.Params.cta_alt.label | markdownify | emojify | safeHTML }} <i class="fas fa-angle-right"></i></a>
+        {{ end }}
+
+      {{ end }}
+  */}}
+
+      {{ with $page.Params.cta_note }}
+      <p class="hero-note text-muted mb-0">
+        {{ .label | markdownify | emojify | safeHTML }}
+      </p>
+      {{ end }}
+  </div>
+</div>

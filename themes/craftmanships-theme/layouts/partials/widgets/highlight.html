@@ -1,0 +1,61 @@
+
+{{ $page := .page }}
+{{ $align :=  $page.Params.align }}
+{{ $link := "" }}
+{{ $image_role := $page.Params.featured_image }}
+{{ $resource_page := site.GetPage "/home/index.md" }}
+{{ $path := printf "highlight/%s/%s/" (path.Base (path.Split $page.Path).Dir) "images" }}
+
+{{ if $page.Params.cta.url}}
+  {{$link = $page.Params.cta.url }}
+{{end}}
+
+{{if eq $align "left"}}
+<div class="row">
+  <div class="col-12 col-lg-4">
+
+      <div class="image-container left">
+
+        {{partial "image" (dict "page" $page "image_role" $image_role "link" $link "path" $path "resource_page" $resource_page)}}
+      </div>
+  </div>
+  <div class="col-12 col-lg-6 highlight-body">
+      {{ $page.Content }}
+      {{partial "cta" .}}
+  </div>
+  <div class = "col-lg-1"></div>
+</div>
+
+{{else}}
+
+<div id="on-desktop">
+  <div class="row">
+    <div class = "col-md-1"></div>
+    <div class="col-12 col-lg-5 highlight-body">
+        {{ $page.Content }}
+        {{partial "cta" .}}
+    </div>
+
+    <div class="col-12 col-lg-4">
+      <div class="image-container right">
+          {{partial "image" (dict "page" $page "image_role" $image_role "link" $link "path" $path "resource_page" $resource_page)}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="on-mobile">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <div class="image-container right">
+          {{partial "image" (dict "page" $page "image_role" $image_role "link" $link "path" $path "resource_page" $resource_page)}}
+      </div>
+    </div>
+    <div class="col-12 highlight-body">
+        {{ $page.Content }}
+        {{partial "cta" .}}
+    </div>
+  </div>
+</div>
+
+{{end}}

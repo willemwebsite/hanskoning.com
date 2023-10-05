@@ -1,0 +1,63 @@
+title: hanskoning.com # Title of your site
+params:
+  text_logo:   |-
+    ## Hans
+    ## Koning
+baseurl: https://hanskoning.com # The URL of your site.
+copyright: 'PoppyGo {year}' # To display a copyright symbol, type `&copy;`. For current year, type `{year}`. Enter a copyright notice to display in the site footer.
+theme:
+  - craftmanships-theme
+enableGitInfo: false
+defaultContentLanguage: nl
+hasCJKLanguage: false
+defaultContentLanguageInSubdir: false
+removePathAccents: false
+summaryLength: 30
+paginate: 60
+enableEmoji: false
+footnotereturnlinkcontents: <sup>^</sup>
+ignoreFiles:
+  - \.ipynb$
+  - .ipynb_checkpoints$
+  - \.Rmd$
+  - \.Rmarkdown$
+  - _files$
+  - _cache$
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+    - WebAppManifest
+    - Sukoh
+  section:
+    - HTML
+    - RSS
+mediaTypes:
+  application/manifest+json:
+    suffixes:
+      - webmanifest
+outputFormats:
+  WebAppManifest:
+    mediaType: application/manifest+json
+    rel: manifest
+  Sukoh:
+    mediaType: "application/json"
+    baseName: "sukoh"
+    path: "/"
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    codeFences: false
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+imaging:
+  resampleFilter: lanczos
+  quality: 60
+  anchor: smart
+taxonomies:
+  technieken: technieken
